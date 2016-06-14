@@ -1331,7 +1331,7 @@ CONFIG_BUSYBOX_CONFIG_MD5_SMALL=1
 CONFIG_BUSYBOX_CONFIG_SHA3_SMALL=1
 CONFIG_BUSYBOX_CONFIG_FEATURE_FAST_TOP=y
 # CONFIG_BUSYBOX_CONFIG_FEATURE_ETC_NETWORKS is not set
-# CONFIG_BUSYBOX_CONFIG_FEATURE_USE_TERMIOS is not set
+CONFIG_BUSYBOX_CONFIG_FEATURE_USE_TERMIOS=y
 CONFIG_BUSYBOX_CONFIG_FEATURE_EDITING=y
 CONFIG_BUSYBOX_CONFIG_FEATURE_EDITING_MAX_LEN=512
 # CONFIG_BUSYBOX_CONFIG_FEATURE_EDITING_VI is not set
@@ -1652,7 +1652,7 @@ CONFIG_BUSYBOX_CONFIG_FEATURE_USE_INITTAB=y
 # CONFIG_BUSYBOX_CONFIG_FEATURE_EXTRA_QUIET is not set
 # CONFIG_BUSYBOX_CONFIG_FEATURE_INIT_COREDUMPS is not set
 # CONFIG_BUSYBOX_CONFIG_FEATURE_INITRD is not set
-CONFIG_BUSYBOX_CONFIG_INIT_TERMINAL_TYPE="xterm-color"
+CONFIG_BUSYBOX_CONFIG_INIT_TERMINAL_TYPE="linux"
 # CONFIG_BUSYBOX_CONFIG_MESG is not set
 
 #
@@ -2119,29 +2119,28 @@ CONFIG_PACKAGE_htop=m
 #
 # Libraries
 #
-# CONFIG_PACKAGE_zlib-dev is not set
-# CONFIG_PACKAGE_ar is not set
-# CONFIG_PACKAGE_autoconf is not set
-# CONFIG_PACKAGE_automake is not set
-# CONFIG_PACKAGE_binutils is not set
-# CONFIG_PACKAGE_diffutils is not set
-# CONFIG_PACKAGE_gcc is not set
-# CONFIG_PACKAGE_gdb is not set
-# CONFIG_PACKAGE_gdbserver is not set
+CONFIG_PACKAGE_zlib-dev=m
+CONFIG_PACKAGE_ar=m
+CONFIG_PACKAGE_autoconf=m
+CONFIG_PACKAGE_automake=m
+CONFIG_PACKAGE_binutils=m
+CONFIG_PACKAGE_diffutils=m
+CONFIG_PACKAGE_gcc=m
+CONFIG_PACKAGE_gdb=m
+CONFIG_PACKAGE_gdbserver=m
 # CONFIG_PACKAGE_hp48cc is not set
-# CONFIG_PACKAGE_libncurses-dev is not set
-# CONFIG_PACKAGE_libsdl-dev is not set
-# CONFIG_PACKAGE_libtool-bin is not set
-# CONFIG_PACKAGE_lttng-tools is not set
-# CONFIG_PACKAGE_m4 is not set
-# CONFIG_PACKAGE_make is not set
-# CONFIG_PACKAGE_objdump is not set
-# CONFIG_PACKAGE_patch is not set
-# CONFIG_PACKAGE_perf is not set
-# CONFIG_PACKAGE_pkg-config is not set
+CONFIG_PACKAGE_libsdl-dev=m
+CONFIG_PACKAGE_libtool-bin=m
+CONFIG_PACKAGE_lttng-tools=m
+CONFIG_PACKAGE_m4=m
+CONFIG_PACKAGE_make=m
+CONFIG_PACKAGE_objdump=m
+CONFIG_PACKAGE_patch=m
+CONFIG_PACKAGE_perf=m
+CONFIG_PACKAGE_pkg-config=m
 # CONFIG_PACKAGE_tig is not set
-# CONFIG_PACKAGE_trace-cmd is not set
-# CONFIG_PACKAGE_trace-cmd-extra is not set
+CONFIG_PACKAGE_trace-cmd=m
+CONFIG_PACKAGE_trace-cmd-extra=m
 
 #
 # Education
@@ -2724,7 +2723,15 @@ CONFIG_PACKAGE_kmod-usb-storage-extras=m
 # CONFIG_PACKAGE_kmod-fb-cfb-imgblt is not set
 # CONFIG_PACKAGE_kmod-fb-sys-fops is not set
 # CONFIG_PACKAGE_kmod-fbcon is not set
-# CONFIG_PACKAGE_kmod-video-core is not set
+CONFIG_PACKAGE_kmod-video-core=m
+CONFIG_PACKAGE_kmod-soc-camera=m
+CONFIG_PACKAGE_kmod-ov2640-camera=m
+CONFIG_PACKAGE_kmod-pxa-camera=m
+# CONFIG_PACKAGE_kmod-video-cpia2 is not set
+# CONFIG_PACKAGE_kmod-video-gspca-core is not set
+# CONFIG_PACKAGE_kmod-video-pwc is not set
+CONFIG_PACKAGE_kmod-video-uvc=m
+CONFIG_PACKAGE_kmod-video-videobuf2=m
 
 #
 # Virtualization Support
@@ -2778,6 +2785,7 @@ CONFIG_PACKAGE_kmod-libertas-spi=y
 # CONFIG_PACKAGE_kmod-rtl8192cu is not set
 # CONFIG_PACKAGE_kmod-rtl8xxxu is not set
 # CONFIG_PACKAGE_kmod-zd1211rw is not set
+CONFIG_PACKAGE_kmod-dma-buf=m
 
 #
 # Languages
@@ -2922,7 +2930,7 @@ CONFIG_PACKAGE_perl-uri=m
 # CONFIG_PACKAGE_perlbase-archive is not set
 # CONFIG_PACKAGE_perlbase-arybase is not set
 # CONFIG_PACKAGE_perlbase-attribute is not set
-# CONFIG_PACKAGE_perlbase-attributes is not set
+CONFIG_PACKAGE_perlbase-attributes=m
 # CONFIG_PACKAGE_perlbase-autodie is not set
 CONFIG_PACKAGE_perlbase-autoloader=m
 CONFIG_PACKAGE_perlbase-autosplit=m
@@ -3017,8 +3025,8 @@ CONFIG_PACKAGE_perlbase-tap=m
 # CONFIG_PACKAGE_perlbase-term is not set
 CONFIG_PACKAGE_perlbase-test=m
 CONFIG_PACKAGE_perlbase-text=m
-# CONFIG_PACKAGE_perlbase-thread is not set
-# CONFIG_PACKAGE_perlbase-threads is not set
+CONFIG_PACKAGE_perlbase-thread=m
+CONFIG_PACKAGE_perlbase-threads=m
 CONFIG_PACKAGE_perlbase-tie=m
 CONFIG_PACKAGE_perlbase-time=m
 # CONFIG_PACKAGE_perlbase-unicode is not set
@@ -3475,12 +3483,13 @@ CONFIG_PACKAGE_libcss=m
 # CONFIG_PACKAGE_libdnet is not set
 CONFIG_PACKAGE_libdom=m
 # CONFIG_PACKAGE_libedit is not set
-# CONFIG_PACKAGE_libelf1 is not set
+CONFIG_PACKAGE_libelf1=m
+# CONFIG_PACKAGE_libasm is not set
 # CONFIG_PACKAGE_libavahi-client is not set
 # CONFIG_PACKAGE_libavahi-compat-libdnssd is not set
 # CONFIG_PACKAGE_libavahi-dbus-support is not set
 # CONFIG_PACKAGE_libavahi-nodbus-support is not set
-# CONFIG_PACKAGE_libbfd is not set
+CONFIG_PACKAGE_libbfd=m
 # CONFIG_PACKAGE_libcares is not set
 CONFIG_PACKAGE_libcurl=m
 
@@ -3530,6 +3539,7 @@ CONFIG_PACKAGE_libdb47=m
 # CONFIG_PACKAGE_libdb47xx is not set
 # CONFIG_PACKAGE_libdbus is not set
 # CONFIG_PACKAGE_libdevmapper is not set
+CONFIG_PACKAGE_libdw=m
 # CONFIG_PACKAGE_libesmtp is not set
 # CONFIG_PACKAGE_libestr is not set
 # CONFIG_PACKAGE_libev is not set
@@ -3654,7 +3664,7 @@ CONFIG_PACKAGE_libnsutils=m
 # CONFIG_PACKAGE_libnxml is not set
 CONFIG_PACKAGE_libogg=m
 # CONFIG_PACKAGE_liboil is not set
-# CONFIG_PACKAGE_libopcodes is not set
+CONFIG_PACKAGE_libopcodes=m
 CONFIG_PACKAGE_libopenldap=m
 # CONFIG_PACKAGE_libopenobex is not set
 # CONFIG_PACKAGE_libopensc is not set
@@ -3673,7 +3683,7 @@ CONFIG_PACKAGE_libparserutils=m
 # CONFIG_PACKAGE_libplist is not set
 # CONFIG_PACKAGE_libplistcxx is not set
 CONFIG_PACKAGE_libpng=y
-# CONFIG_PACKAGE_libpopt is not set
+CONFIG_PACKAGE_libpopt=m
 # CONFIG_PACKAGE_libprotobuf-c is not set
 CONFIG_PACKAGE_libpurple=m
 # CONFIG_PACKAGE_libqrencode is not set
@@ -3731,7 +3741,7 @@ CONFIG_PACKAGE_libuclient=y
 # CONFIG_PACKAGE_libunistring is not set
 # CONFIG_PACKAGE_libupnp is not set
 # CONFIG_PACKAGE_libupnpp is not set
-# CONFIG_PACKAGE_liburcu is not set
+CONFIG_PACKAGE_liburcu=m
 CONFIG_PACKAGE_libusb-1.0=m
 CONFIG_PACKAGE_libusb-compat=m
 # CONFIG_PACKAGE_libusbmuxd is not set
@@ -3762,7 +3772,7 @@ CONFIG_PACKAGE_libzip=m
 # CONFIG_PACKAGE_libzmq-curve is not set
 # CONFIG_PACKAGE_libzmq-nc is not set
 # CONFIG_PACKAGE_linux-atm is not set
-# CONFIG_PACKAGE_lttng-ust is not set
+CONFIG_PACKAGE_lttng-ust=m
 # CONFIG_PACKAGE_mpfr is not set
 # CONFIG_PACKAGE_mtdev is not set
 CONFIG_PACKAGE_mupdf=m
@@ -3850,6 +3860,7 @@ CONFIG_PACKAGE_bard=m
 CONFIG_PACKAGE_flite=m
 # CONFIG_PACKAGE_fswebcam is not set
 CONFIG_PACKAGE_gmu=m
+CONFIG_PACKAGE_gmu8=m
 # CONFIG_PACKAGE_grilo is not set
 # CONFIG_PACKAGE_grilo-plugins is not set
 # CONFIG_PACKAGE_gst1-libav is not set
@@ -4221,7 +4232,8 @@ CONFIG_PACKAGE_htpdate=y
 # Version Control Systems
 #
 # CONFIG_PACKAGE_fossil is not set
-# CONFIG_PACKAGE_git is not set
+CONFIG_PACKAGE_git=m
+CONFIG_PACKAGE_git-http=m
 
 #
 # Web
@@ -4573,7 +4585,6 @@ CONFIG_PACKAGE_nfs-utils=m
 # Terminal
 #
 # CONFIG_PACKAGE_agetty is not set
-# CONFIG_PACKAGE_ben-cyrillic is not set
 # CONFIG_PACKAGE_fbsize is not set
 # CONFIG_PACKAGE_fbterm is not set
 # CONFIG_PACKAGE_jfbterm is not set
@@ -4625,18 +4636,18 @@ CONFIG_PACKAGE_fbi=m
 #
 # zoneinfo
 #
-# CONFIG_PACKAGE_zoneinfo-africa is not set
-# CONFIG_PACKAGE_zoneinfo-asia is not set
-# CONFIG_PACKAGE_zoneinfo-atlantic is not set
-# CONFIG_PACKAGE_zoneinfo-australia-nz is not set
-# CONFIG_PACKAGE_zoneinfo-core is not set
-# CONFIG_PACKAGE_zoneinfo-europe is not set
-# CONFIG_PACKAGE_zoneinfo-india is not set
-# CONFIG_PACKAGE_zoneinfo-northamerica is not set
-# CONFIG_PACKAGE_zoneinfo-pacific is not set
-# CONFIG_PACKAGE_zoneinfo-poles is not set
-# CONFIG_PACKAGE_zoneinfo-simple is not set
-# CONFIG_PACKAGE_zoneinfo-southamerica is not set
+CONFIG_PACKAGE_zoneinfo-africa=m
+CONFIG_PACKAGE_zoneinfo-asia=m
+CONFIG_PACKAGE_zoneinfo-atlantic=m
+CONFIG_PACKAGE_zoneinfo-australia-nz=m
+CONFIG_PACKAGE_zoneinfo-core=m
+CONFIG_PACKAGE_zoneinfo-europe=m
+CONFIG_PACKAGE_zoneinfo-india=m
+CONFIG_PACKAGE_zoneinfo-northamerica=m
+CONFIG_PACKAGE_zoneinfo-pacific=m
+CONFIG_PACKAGE_zoneinfo-poles=m
+CONFIG_PACKAGE_zoneinfo-simple=m
+CONFIG_PACKAGE_zoneinfo-southamerica=m
 # CONFIG_PACKAGE_NanoMap is not set
 # CONFIG_PACKAGE_NanoMap-maps is not set
 # CONFIG_PACKAGE_TiMidity is not set
@@ -4835,9 +4846,6 @@ CONFIG_PACKAGE_imgv=m
 # CONFIG_PACKAGE_jdkdrum is not set
 # CONFIG_PACKAGE_jpeg-tools is not set
 # CONFIG_PACKAGE_jshn is not set
-# CONFIG_PACKAGE_kbd is not set
-# CONFIG_PACKAGE_kbd-console-fonts is not set
-# CONFIG_PACKAGE_kbd-console-maps is not set
 # CONFIG_PACKAGE_keymouse is not set
 # CONFIG_PACKAGE_kinyin is not set
 # CONFIG_PACKAGE_kmod is not set
@@ -4862,7 +4870,7 @@ CONFIG_PACKAGE_imgv=m
 # CONFIG_PACKAGE_maccalc is not set
 # CONFIG_PACKAGE_macchanger is not set
 # CONFIG_PACKAGE_man-tiny is not set
-# CONFIG_PACKAGE_mandoc is not set
+CONFIG_PACKAGE_mandoc=m
 # CONFIG_PACKAGE_mathomatic is not set
 # CONFIG_PACKAGE_mbtools is not set
 CONFIG_PACKAGE_mc=m
@@ -4962,7 +4970,6 @@ CONFIG_PACKAGE_TAR_BZIP2=y
 # CONFIG_PACKAGE_taskwarrior is not set
 # CONFIG_PACKAGE_tcsh is not set
 # CONFIG_PACKAGE_tempest-for-eliza is not set
-# CONFIG_PACKAGE_terminus-font is not set
 # CONFIG_PACKAGE_tiff-utils is not set
 CONFIG_PACKAGE_tmux=y
 # CONFIG_PACKAGE_tracertools is not set
