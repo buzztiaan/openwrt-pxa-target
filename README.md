@@ -35,5 +35,15 @@ Apply patches to openwrt and openwrt-packages:
 
 Run _make_ to do the default build or run _make menuconfig_ to add/remove packages.
 
+## Zipit Z2 Linux Kernel 4.4 Internal 8Mb FlashPartition Layout
+| Contents | Size(bytes) | Start[hex] | Size[hex] |
+|:--------:| -----------:| ----------:| ---------:|
+| u-boot | 262144 | 0x00000 | 0x40000 |
+| u-boot-env | 65536 | 0x40000 | 0x10000 |
+| kernel | 1638400 | 0x50000 | 0x190000 |
+| squashfs | 4259840 | 0x1E0000 | 0x410000 |
+| jffs2 | 2162688 | 0x5F0000 | 0x210000 |
+Verify your file sizes after compiling to ensure they will fit in the above partitions (if installing to internal flash)
+
 ## Pre-Built Package Repository
-A repository of pre built packages is available and this build system configures opkg to use that repository. It is hosted at [https://mozzwald.com/zipit/index.php?dir=openwrt%2Fbleeding_edge%2F](https://mozzwald.com/zipit/index.php?dir=openwrt%2Fbleeding_edge%2F)
+A repository of pre built packages is available and this build system configures opkg to use that repository. It is hosted at [mozzwald.com](https://mozzwald.com/zipit/index.php?dir=openwrt%2Fbleeding_edge%2F) See the README in that directory for installation instructions.
