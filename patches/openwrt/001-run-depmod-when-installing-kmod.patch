@@ -1,0 +1,12 @@
+diff --git a/include/kernel.mk b/include/kernel.mk
+index 432e8ce..6f2c8ec 100644
+--- a/include/kernel.mk
++++ b/include/kernel.mk
+@@ -126,6 +126,7 @@ define ModuleAutoLoad
+ 		echo "#!/bin/sh" > $(2)/CONTROL/postinst-pkg; \
+ 		echo "[ -z \"\$$$$$$$$IPKG_INSTROOT\" ] || exit 0" >> $(2)/CONTROL/postinst-pkg; \
+ 		echo ". /lib/functions.sh" >> $(2)/CONTROL/postinst-pkg; \
++		echo "/sbin/depmod" >> $(2)/CONTROL/postinst-pkg; \
+ 		echo "insert_modules $$$$$$$$modules" >> $(2)/CONTROL/postinst-pkg; \
+ 		chmod 0755 $(2)/CONTROL/postinst-pkg; \
+ 	fi
