@@ -17,8 +17,7 @@ Add the pxa target feed to _feeds.conf_:
 
 Update and install the target feed:
 
-     scripts/feeds update
-     scripts/feeds install -p pxa_target pxa
+     scripts/feeds update && scripts/feeds install -p pxa_target pxa
 
 Copy the _feeds.conf_ and default config files:
 
@@ -27,10 +26,14 @@ Copy the _feeds.conf_ and default config files:
 
 Update the feeds again:
 
-     scripts/feeds update
-     scripts/feeds install -a
+     scripts/feeds update && scripts/feeds install -a
+
+Apply patches to openwrt and openwrt-packages:
+
+     for f in feeds/pxa_target/patches/openwrt/*; do patch -p1 < "${f}"; done
+     for f in feeds/pxa_target/patches/openwrt-packages/*; do patch -d feeds/packages -p1 < "${f}"; done
 
 Run _make_ to do the default build or run _make menuconfig_ to add/remove packages.
 
-## Pre-Built Repository
+## Pre-Built Package Repository
 A repository of pre built packages is available and this build system configures opkg to use that repository. It is hosted at [https://mozzwald.com/zipit/index.php?dir=openwrt%2Fbleeding_edge%2F](https://mozzwald.com/zipit/index.php?dir=openwrt%2Fbleeding_edge%2F)
