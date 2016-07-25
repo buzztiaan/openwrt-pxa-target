@@ -11,7 +11,7 @@ diff --git a/arch/arm/boot/dts/zipit-z2.dts b/arch/arm/boot/dts/zipit-z2.dts
 index 1823921..855c1a3 100644
 --- a/arch/arm/boot/dts/zipit-z2.dts
 +++ b/arch/arm/boot/dts/zipit-z2.dts
-@@ -39,17 +39,25 @@
+@@ -39,17 +39,21 @@
  
  			ubootenv@40000 {
  				label = "U-Boot Environment";
@@ -37,11 +37,7 @@ index 1823921..855c1a3 100644
 +			jffs2@5f0000 {
 +				label = "JFFS2";
 +				reg = <0x5f0000 0>;
-+			};
-+			firm@50000 {
-+				label = "Firmware";
-+				reg = <0x50000 0>;
-};
+ 			};
  		};
  
 -- 
