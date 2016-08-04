@@ -33,17 +33,23 @@ Apply patches to openwrt and openwrt-packages:
      for f in feeds/pxa_target/patches/openwrt/*; do patch -p1 < "${f}"; done
      for f in feeds/pxa_target/patches/openwrt-packages/*; do patch -d feeds/packages -p1 < "${f}"; done
 
+Update zipit_openwrt_defconfig:
+
+     make defconfig
+
 Run _make_ to do the default build or run _make menuconfig_ to add/remove packages.
 
 ## Zipit Z2 Linux Kernel 4.4 Internal 8Mb FlashPartition Layout
-| Contents | Size(bytes) | Start[hex] | Size[hex] |
-|:--------:| -----------:| ----------:| ---------:|
-| u-boot | 262144 | 0x00000 | 0x40000 |
-| u-boot-env | 65536 | 0x40000 | 0x10000 |
-| kernel | 1638400 | 0x50000 | 0x190000 |
-| squashfs | 4259840 | 0x1E0000 | 0x410000 |
-| jffs2 | 2162688 | 0x5F0000 | 0x210000 |
-Verify your file sizes after compiling to ensure they will fit in the above partitions (if installing to internal flash)
+| Mtdblock | Name | Size(bytes) | Start[hex] | Size[hex] |
+|:--------:|:--------:| -----------:| ----------:| ---------:|
+| 0 | u-boot | 262144 | 0x00000 | 0x40000 |
+| 1 | u-boot-env | 65536 | 0x40000 | 0x10000 |
+| 2 | kernel | ? | 0x50000 | ? |
+| 3 | squashfs | ? | ? | ? |
+| 4 | jffs2 | ? | ? | ? |
+| 5 | firmware | 8060928 | 0x50000 | 0x7B0000 |
+
+Flash partition sizes are automatically calculated at image creation time and follow the above layout. A successful build will output a "firmware" image file in the bin/pxa dir which contains the kernel, squashfs and jffs which can be written to to mtdblock5 (firmware). If you modify (add) packages (via menuconfig) and the image file is larger than 8060928 bytes, the openwrt build will exit with an error stating such. Reduce your installed packages and try again.
 
 ## Pre-Built Package Repository
 A repository of pre built packages is available and this build system configures opkg to use that repository. It is hosted at [mozzwald.com](https://mozzwald.com/zipit/index.php?dir=openwrt%2Fbleeding_edge%2F) See the README in that directory for installation instructions.
