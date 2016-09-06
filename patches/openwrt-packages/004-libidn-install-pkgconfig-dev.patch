@@ -1,0 +1,13 @@
+diff --git a/libs/libidn/Makefile b/libs/libidn/Makefile
+index 8bfe2a8..ce4c69d 100644
+--- a/libs/libidn/Makefile
++++ b/libs/libidn/Makefile
+@@ -79,6 +79,8 @@ define Build/InstallDev
+ 	$(CP) $(PKG_INSTALL_DIR)/usr/include/*.h $(1)/usr/include/
+ 	$(INSTALL_DIR) $(1)/usr/lib
+ 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libidn.{a,so*} $(1)/usr/lib/
++	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
++	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/libidn.pc $(1)/usr/lib/pkgconfig/
+ endef
+ 
+ define Package/idn/install
