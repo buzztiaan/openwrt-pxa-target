@@ -1,0 +1,11 @@
+--- a/net/irssi/Makefile	2016-06-01 11:55:00.899028335 -0400
++++ b/net/irssi/Makefile	2016-06-01 12:47:35.027847915 -0400
+@@ -12,7 +12,7 @@
+ PKG_RELEASE:=1
+
+ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+-PKG_SOURCE_URL:=http://irssi.org/files/
++PKG_SOURCE_URL:=http://pkgs.fedoraproject.org/lookaside/pkgs/irssi/irssi-0.8.17.tar.bz2/ecf64be47978d89a742b435a81cb47db/
+ PKG_MD5SUM:=ecf64be47978d89a742b435a81cb47db
+
+ PKG_FIXUP:=autoreconf
