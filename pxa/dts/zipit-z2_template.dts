@@ -266,7 +266,8 @@
 			simple-audio-card,frame-master = <&frame_master>;
 			simple-audio-card,widgets =
 				"Headphone", "Headphones",
-				"Microphone", "Microphone",
+				"Microphone", "Mic Jack",
+				"Microphone", "Mic Dock",
 				"Speaker", "Speaker";
 			simple-audio-card,routing =
 			/* headphone connected to LOUT1, ROUT1 */
@@ -277,9 +278,13 @@
 			"Speaker", "ROUT2",
 			"Speaker", "LOUT2",
 
-			/* mic is connected to R input 2 - with bias */
+			/* headset mic is connected to R input 2 - with bias */
 			"RINPUT2", "Mic Bias",
-			"Mic Bias", "Microphone";
+			"Mic Bias", "Mic Jack",
+
+			/* dock mic is connected to L input 2 - with bias */
+			"LINPUT2", "Mic Bias",
+			"Mic Bias", "Mic Dock";
 
 			simple-audio-card,hp-det-gpio = <&gpio 37 GPIO_ACTIVE_LOW>;
 

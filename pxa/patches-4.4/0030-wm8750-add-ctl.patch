@@ -1,0 +1,10 @@
+--- a/sound/soc/codecs/wm8750.c	2016-09-12 19:52:19.245928841 -0500
++++ b/sound/soc/codecs/wm8750.c	2016-09-12 19:53:11.461929894 -0500
+@@ -704,6 +704,7 @@
+ 	snd_soc_update_bits(codec, WM8750_ROUT2V, 0x0100, 0x0100);
+ 	snd_soc_update_bits(codec, WM8750_LINVOL, 0x0100, 0x0100);
+ 	snd_soc_update_bits(codec, WM8750_RINVOL, 0x0100, 0x0100);
++	snd_soc_update_bits(codec, WM8750_ADCTL3, 0x0180, 0x0180);
+ 
+ 	return ret;
+ }
