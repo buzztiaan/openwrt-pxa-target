@@ -1,0 +1,27 @@
+diff --git a/arch/arm/mach-pxa/z2.c b/arch/arm/mach-pxa/z2.c
+index 9f2ad23..a4f79c4 100644
+--- a/arch/arm/mach-pxa/z2.c
++++ b/arch/arm/mach-pxa/z2.c
+@@ -326,6 +326,13 @@ static void z2_power_off(void)
+ #define z2_power_off   NULL
+ #endif
+ 
++static void __init z2_map_io(void)
++{
++	pxa27x_map_io();
++
++	PWER &= ~(1 << 0);
++}
++
+ /******************************************************************************
+  * Machine init
+  ******************************************************************************/
+@@ -348,7 +355,7 @@ static const char * const z2_dt_board_compat[] __initconst = {
+ 
+ DT_MACHINE_START(ZIPIT2, "Zipit Z2")
+ 	.atag_offset	= 0x100,
+-	.map_io		= pxa27x_map_io,
++	.map_io		= z2_map_io,
+ 	.init_irq	= pxa27x_dt_init_irq,
+ 	.handle_irq	= pxa27x_handle_irq,
+ 	.init_machine	= z2_init,
