@@ -2,11 +2,10 @@ diff --git a/arch/arm/mach-pxa/z2.c b/arch/arm/mach-pxa/z2.c
 index 11ad845..9f2ad23 100644
 --- a/arch/arm/mach-pxa/z2.c
 +++ b/arch/arm/mach-pxa/z2.c
-@@ -138,6 +138,23 @@ static unsigned long z2_pin_config[] = {
+@@ -138,6 +138,22 @@ static unsigned long z2_pin_config[] = {
  	GPIO24_GPIO,		/* WiFi CS */
  	GPIO36_GPIO,		/* WiFi IRQ */
  	GPIO88_GPIO,		/* LCD CS */
-+	GPIO42_GPIO,		/* BTRXD / ICP_RXD */
 +	GPIO86_GPIO,		/* SSPRXD2 / USB_P3_5 */
 +
 +	/* Camera GPIO's on dock connector */
