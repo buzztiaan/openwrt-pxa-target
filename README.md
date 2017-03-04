@@ -1,6 +1,9 @@
 # openwrt-pxa-target
 This target feed adds support for the Zipit Z2 (pxa) platform to openwrt. It has been tested with openwrt trunk as of commit [1e22c9b9eb691878156dfe32fb1e117737f1d248](https://github.com/openwrt/openwrt/commit/1e22c9b9eb691878156dfe32fb1e117737f1d248) (Wed Apr 27 2016)
 
+## Pre-Built Package Repository
+Pre-compiled rootfs and packages are available. See the [Wiki](https://github.com/openwrt-zipit/openwrt-pxa-target/wiki) for more information about installation and general usage.
+
 ## Prerequisites
 See the [OpenWrt Wiki page](https://wiki.openwrt.org/doc/howto/buildroot.exigence) for host system prerequisites
 
@@ -50,6 +53,3 @@ Run _make_ to do the default build or run _make menuconfig_ to add/remove packag
 | 5 | firmware | 8060928 | 0x50000 | 0x7B0000 |
 
 Flash partition sizes are automatically calculated at image creation time and follow the above layout. A successful build will output a "firmware" image file in the bin/pxa dir which contains the kernel, squashfs and jffs which can be written to to mtdblock5 (firmware). If you modify (add) packages (via menuconfig) and the image file is larger than 8060928 bytes, the openwrt build will exit with an error stating such. Reduce your installed packages and try again.
-
-## Pre-Built Package Repository
-A repository of pre built packages is available and this build system configures opkg to use that repository. It is hosted at [mozzwald.com](https://mozzwald.com/zipit/index.php?dir=openwrt%2Fbleeding_edge%2F) See the README in that directory for installation instructions.
