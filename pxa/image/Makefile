@@ -63,6 +63,13 @@ define Image/Build/firmware
 	$(call check-filesize,$(BIN_DIR)/$(IMG_PREFIX)-firmware.img,8060928)
 endef
 
+# Build tarball with uImage in /boot
+define Image/Build/targz
+	$(CP) $(BIN_DIR)/$(IMG_PREFIX)-uImage $(TARGET_DIR)/boot/uImage
+	$(call Image/mkfs/targz)
+	rm $(TARGET_DIR)/boot/uImage
+endef
+
 define check-filesize
 	@if [ "$$$$(stat -c%s $(1))" -gt $(2) ]; then \
 		echo "WARNING: file $(1) is too big!" >&2; \
@@ -74,6 +81,7 @@ define Image/Build
 	$(call Image/Build/$(1),$(1))
 	$(call Image/Build/$(PROFILE),$(1))
 	$(call Image/Build/firmware,$(1))
+	$(call Image/Build/targz,$(1))
 endef
 
 $(eval $(call BuildImage))
