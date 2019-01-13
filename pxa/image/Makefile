@@ -6,7 +6,6 @@
 #
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/image.mk
-include $(INCLUDE_DIR)/host.mk
 
 SQUASHFSCOMP:=xz
 FLASH_BLOCKSIZE:=64
@@ -65,9 +64,10 @@ endef
 
 # Build tarball with uImage in /boot
 define Image/Build/targz
-	$(CP) $(BIN_DIR)/$(IMG_PREFIX)-uImage $(TARGET_DIR)/boot/uImage
+# Kernel moved in openwrt 18.06
+#	$(CP) $(BIN_DIR)/$(IMG_PREFIX)-uImage $(TARGET_DIR)/boot/uImage
 	$(call Image/mkfs/targz)
-	rm $(TARGET_DIR)/boot/uImage
+#	rm $(TARGET_DIR)/boot/uImage
 endef
 
 define check-filesize

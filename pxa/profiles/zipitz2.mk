@@ -8,9 +8,11 @@
 define Profile/ZipitZ2
   NAME:=ZipitZ2
   PACKAGES:=\
-	kmod-libertas-spi libertas-spi-firmware kmod-sound-zipit-z2 \
+	kmod-libertas-spi libertas-spi-firmware \
+	kmod-sound-zipit-z2 \
 	kmod-cpufreq-conservative kmod-usb-ohci-pxa27x \
-	zipit-base-files ebindkeys-zipit \
+	ebindkeys-zipit \
+# Package needs fixup:	zipit-base-files \
 	wireless-tools wpa-supplicant-mini alsa-utils
 endef
 
