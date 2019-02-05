@@ -1,5 +1,5 @@
 # openwrt-pxa-target
-This target feed adds support for the Zipit Z2 (pxa) platform to openwrt. It has been tested with openwrt trunk as of commit [1e22c9b9eb691878156dfe32fb1e117737f1d248](https://github.com/openwrt/openwrt/commit/1e22c9b9eb691878156dfe32fb1e117737f1d248) (Wed Apr 27 2016)
+This target feed adds support for the Zipit Z2 (pxa) platform to openwrt. It has been tested with openwrt trunk as of commit [1e22c9b9eb691878156dfe32fb1e117737f1d248](https://github.com/openwrt/archive/commit/1e22c9b9eb691878156dfe32fb1e117737f1d248) (Wed Apr 27 2016)
 
 ## Pre-Built Package Repository
 Pre-compiled rootfs and packages are available. See the [Wiki](https://github.com/openwrt-zipit/openwrt-pxa-target/wiki) for more information about installation and general usage.
@@ -10,7 +10,7 @@ See the [OpenWrt Wiki page](https://wiki.openwrt.org/doc/howto/buildroot.exigenc
 ## Usage
 Download openwrt trunk with git and checkout commit 1e22c9b9eb691878156dfe32fb1e117737f1d248:
 
-     git clone https://github.com/openwrt/openwrt.git openwrt-zipit
+     git clone https://github.com/openwrt/archive.git openwrt-zipit
      cd openwrt-zipit
      git checkout 1e22c9b9eb691878156dfe32fb1e117737f1d248
 
