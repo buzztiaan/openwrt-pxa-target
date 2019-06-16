@@ -1,6 +1,6 @@
-diff -Naur ../working-openwrt-zipit/tools/pkg-config/patches/0001-ignore-nonliteral-errors.patch tools/pkg-config/patches/0001-ignore-nonliteral-errors.patch
---- ../working-openwrt-zipit/tools/pkg-config/patches/0001-ignore-nonliteral-errors.patch       1970-01-01 01:00:00.000000000 +0100
-+++ tools/pkg-config/patches/0001-ignore-nonliteral-errors.patch        2019-06-17 01:09:49.047078463 +0200
+diff -Naur a/tools/pkg-config/patches/0001-ignore-nonliteral-errors.patch b/tools/pkg-config/patches/0001-ignore-nonliteral-errors.patch
+--- a/tools/pkg-config/patches/0001-ignore-nonliteral-errors.patch       1970-01-01 01:00:00.000000000 +0100
++++ b/tools/pkg-config/patches/0001-ignore-nonliteral-errors.patch        2019-06-17 01:09:49.047078463 +0200
 @@ -0,0 +1,21 @@
 +diff --git a/glib/glib/gdate.c b/glib/glib/gdate.c
 +index 1978cf7..9be9b97 100644
