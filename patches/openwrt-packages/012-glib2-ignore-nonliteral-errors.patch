@@ -1,0 +1,19 @@
+diff -Naur b/libs/glib2/patches/002-glib-ignore-nonliteral-errors.patch packages/libs/glib2/patches/002-glib-ignore-nonliteral-errors.patch
+--- b/libs/glib2/patches/002-glib-ignore-nonliteral-errors.patch	1970-01-01 01:00:00.000000000 +0100
++++ packages/libs/glib2/patches/002-glib-ignore-nonliteral-errors.patch	2019-06-18 00:37:29.479983038 +0200
+@@ -0,0 +1,15 @@
++Index: glib-2.46.2/glib/gdate.c
++===================================================================
++--- glib-2.46.2.orig/glib/gdate.c
+++++ glib-2.46.2/glib/gdate.c
++@@ -2439,6 +2439,10 @@ win32_strftime_helper (const GDate     *
++  *
++  * Returns: number of characters written to the buffer, or 0 the buffer was too small
++  */
+++
+++#pragma GCC diagnostic push
+++#pragma GCC diagnostic ignored "-Wformat-nonliteral"
+++
++ gsize     
++ g_date_strftime (gchar       *s, 
++                  gsize        slen, 
