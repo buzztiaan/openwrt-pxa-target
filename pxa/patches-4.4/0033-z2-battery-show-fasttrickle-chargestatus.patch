@@ -1,0 +1,66 @@
+--- a/drivers/power/z2_battery.c	2019-06-17 08:02:50.957426385 -0500
++++ b/drivers/power/z2_battery.c	2019-06-17 08:17:01.314571949 -0500
+@@ -25,6 +25,7 @@
+ struct z2_charger {
+ 	struct z2_battery_info		*info;
+ 	int				bat_status;
++	int				chrg_status;
+ 	struct i2c_client		*client;
+ 	struct power_supply		*batt_ps;
+ 	struct power_supply_desc	batt_ps_desc;
+@@ -78,6 +79,9 @@
+ 	case POWER_SUPPLY_PROP_PRESENT:
+ 		val->intval = 1;
+ 		break;
++	case POWER_SUPPLY_PROP_CHARGE_TYPE:
++		val->intval = charger->chrg_status;
++		break;
+ 	default:
+ 		return -EINVAL;
+ 	}
+@@ -107,15 +111,19 @@
+ 
+ 		if (val1 == 0 && val2 == 0){
+ 			charger->bat_status = POWER_SUPPLY_STATUS_CHARGING;
++			charger->chrg_status = POWER_SUPPLY_CHARGE_TYPE_TRICKLE;
+ 		}
+ 		else if (val1 == 0 && val2 == 1){
+ 			charger->bat_status = POWER_SUPPLY_STATUS_CHARGING;
++			charger->chrg_status = POWER_SUPPLY_CHARGE_TYPE_FAST;
+ 		}
+ 		else if (val1 == 1 && val2 == 0){
+ 			charger->bat_status = POWER_SUPPLY_STATUS_FULL;
++			charger->chrg_status = POWER_SUPPLY_CHARGE_TYPE_NONE;
+ 		}
+ 		else{
+ 			charger->bat_status = POWER_SUPPLY_STATUS_DISCHARGING;
++			charger->chrg_status = POWER_SUPPLY_CHARGE_TYPE_NONE;
+ 		}
+ 	}
+ 
+@@ -159,6 +167,8 @@
+ 		props++;	/* POWER_SUPPLY_PROP_VOLTAGE_MAX */
+ 	if (info->min_voltage >= 0)
+ 		props++;	/* POWER_SUPPLY_PROP_VOLTAGE_MIN */
++	if (charger->chrg_status >= 0)
++		props++;        /* POWER_SUPPLY_PROP_CHARGE_TYPE */
+ 
+ 	prop = kzalloc(props * sizeof(*prop), GFP_KERNEL);
+ 	if (!prop)
+@@ -175,6 +185,8 @@
+ 		prop[i++] = POWER_SUPPLY_PROP_VOLTAGE_MAX;
+ 	if (info->min_voltage >= 0)
+ 		prop[i++] = POWER_SUPPLY_PROP_VOLTAGE_MIN;
++	if (charger->chrg_status >= 0)
++		prop[i++] = POWER_SUPPLY_PROP_CHARGE_TYPE;
+ 
+ 	if (!info->batt_name) {
+ 		dev_info(&charger->client->dev,
+@@ -243,6 +255,7 @@
+ 		return -ENOMEM;
+ 
+ 	charger->bat_status = POWER_SUPPLY_STATUS_UNKNOWN;
++	charger->chrg_status = POWER_SUPPLY_CHARGE_TYPE_UNKNOWN;
+ 	charger->info = info;
+ 	charger->client = client;
+ 	i2c_set_clientdata(client, charger);
