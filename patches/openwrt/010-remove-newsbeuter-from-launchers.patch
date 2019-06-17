@@ -1,0 +1,42 @@
+--- ../toogoodtobetrue-openwrt-zipit/feeds/zipit_packages/gmenu2x-launchers/Makefile	2019-06-17 22:10:34.636306097 +0200
++++ ./feeds/zipit_packages/gmenu2x-launchers/Makefile	2019-06-18 01:10:36.795910204 +0200
+@@ -239,23 +239,23 @@
+ 
+ $(eval $(call BuildPackage,gmenu2x-nethack))
+ 
+-define Package/gmenu2x-newsbeuter
+-	CATEGORY:=GMenu2X
+-	TITLE:=newsbeuter/podbeuter launcher for gmenu2x
+-	DEPENDS:=+gmenu2x +newsbeuter
+-	VARIANT:=gmenu2x-newsbeuter
+-endef
+-
+-define Package/gmenu2x-newsbeuter/install
+-	$(INSTALL_DIR) \
+-	$(1)/usr/share/gmenu2x/ \
+-
+-	$(CP) \
+-		./files/newsbeuter/* \
+-		$(1)/usr/share/gmenu2x/
+-endef
++#define Package/gmenu2x-newsbeuter
++#	CATEGORY:=GMenu2X
++#	TITLE:=newsbeuter/podbeuter launcher for gmenu2x
++#	DEPENDS:=+gmenu2x +newsbeuter
++#	VARIANT:=gmenu2x-newsbeuter
++#endef
++
++#define Package/gmenu2x-newsbeuter/install
++#	$(INSTALL_DIR) \
++#	$(1)/usr/share/gmenu2x/ \
++#
++#	$(CP) \
++#		./files/newsbeuter/* \
++#		$(1)/usr/share/gmenu2x/
++#endef
+ 
+-$(eval $(call BuildPackage,gmenu2x-newsbeuter))
++#$(eval $(call BuildPackage,gmenu2x-newsbeuter))
+ 
+ define Package/gmenu2x-imgv
+ 	CATEGORY:=GMenu2X
