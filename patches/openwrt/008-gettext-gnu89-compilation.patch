@@ -1,0 +1,11 @@
+--- ../working-openwrt-zipit/package/libs/gettext-full/Makefile	2019-05-31 18:53:49.624538474 +0200
++++ ./package/libs/gettext-full/Makefile	2019-06-18 00:04:59.236054514 +0200
+@@ -35,7 +35,7 @@
+   URL:=http://www.gnu.org/software/gettext/
+ endef
+ 
+-TARGET_CFLAGS += $(FPIC)
++TARGET_CFLAGS += $(FPIC) -std=gnu89
+ ifneq ($(HOST_OS),Linux)
+   TARGET_CFLAGS += -I$(STAGING_DIR)/host/include
+ endif

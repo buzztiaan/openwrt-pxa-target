@@ -1,0 +1,11 @@
+--- ../working-openwrt-zipit/package/libs/libiconv-full/Makefile	2019-05-31 18:53:49.624538474 +0200
++++ ./package/libs/libiconv-full/Makefile	2019-06-18 00:04:27.724055668 +0200
+@@ -49,7 +49,7 @@
+   TITLE+= utility
+ endef
+ 
+-TARGET_CFLAGS += $(FPIC) -DUSE_DOS
++TARGET_CFLAGS += $(FPIC) -DUSE_DOS -std=gnu89
+ 
+ CONFIGURE_ARGS += \
+ 	--enable-shared \
